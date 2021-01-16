@@ -1,7 +1,8 @@
 {
     "recommendations": [
         "vsciot-vscode.vscode-arduino",
-        "ms-vscode.cpptools"
+        "ms-vscode.cpptools",
+        "marus25.cortex-debug"
     ]
 }
   

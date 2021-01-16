@@ -1,0 +1,16 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+       {
+          "name": "Debug",
+          "type": "cortex-debug",
+          "cwd": "${workspaceRoot}",
+          "executable": "./build/Nemesis-Mod.ino.elf",
+          "request": "launch",
+          "servertype": "jlink",
+          "runToMain": true,
+          "interface": "swd",
+          "device": "NRF52832_XXAA"
+       }
+    ]
+ }

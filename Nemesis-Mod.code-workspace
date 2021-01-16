@@ -10,6 +10,8 @@
 		"arduino.additionalUrls": [
 			"https://adafruit.github.io/arduino-board-index/package_adafruit_index.json"
 		],
+		"cortex-debug.armToolchainPath": "${env:LOCALAPPDATA}/Arduino15/packages/adafruit/tools/arm-none-eabi-gcc/9-2019q4/bin",
+		"cortex-debug.JLinkGDBServerPath": "C:/Program Files (x86)/SEGGER/JLink_v694a/JLinkGDBServerCL.exe",
 		"C_Cpp.intelliSenseEngine": "Default",
 		"editor.tabSize": 4,
 		"files.exclude": {

@@ -1,7 +1,9 @@
 # Visual Studio Code configuration files
 **/.vscode/**
+!**/.vscode/arduino.json
 !**/.vscode/c_cpp_properties.json
 !**/.vscode/extensions.json
+!**/.vscode/launch.json
 
 # Build configuration outputs
 **/build/*

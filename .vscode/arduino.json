@@ -1,0 +1,7 @@
+{
+    "board": "adafruit:nrf52:feather52832",
+    "configuration": "softdevice=s132v6,debug=l3",
+    "sketch": "Nemesis-Mod\\Nemesis-Mod.ino",
+    "output": "build",
+    "port": "COM5"
+}
