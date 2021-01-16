@@ -1,5 +1,4 @@
 #include "BLEController.h"
-#include "Log.h"
 
 const uint32_t NOTIFICATION_INTERVAL_IN_MSECS = 10000; // 10 seconds
 const uint32_t NOTIFICATION_INTERVAL_WHILE_ACTIVE_IN_MSECS = 1000; // 1 second
@@ -65,8 +64,6 @@ void BLEController::startAdvertising() {
 
 void BLEController::clearBonds() {
   Bluefruit.clearBonds();
-
-  Log.println("Cleared bluetooth bonds.");
 }
 
 void BLEController::notifyBeltCurrentMilliamps(uint32_t m1, bool isActive) {

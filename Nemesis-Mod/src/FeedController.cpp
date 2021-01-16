@@ -1,6 +1,5 @@
 #include "ConfigurationSettings.h"
 #include "FeedController.h"
-#include "Log.h"
 #include "Mainboard.h"
 
 FeedController Belt = FeedController();
@@ -17,7 +16,6 @@ void FeedController::init() {
     setSpeed(BeltSpeed::Normal);
     
     MCU.delaySafe(1);    
-    Log.println("Completed initializing feed controller.");
 }
 
 unsigned int FeedController::getMotorCurrentMilliamps() {
@@ -74,6 +72,4 @@ void FeedController::setSpeed(BeltSpeed speed) {
     if (isRunning()) {
         updateDriver();
     }
-
-    Log.println("Feed speed changed.");   
 }

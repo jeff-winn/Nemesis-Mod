@@ -6,7 +6,6 @@
 #include "ConfigurationSettings.h"
 #include "FeedController.h"
 #include "FlywheelController.h"
-#include "Log.h"
 #include "Mainboard.h"
 
 const uint32_t SYSTEM_OFF_IN_MSECS = 600000; // 10 minutes
@@ -54,7 +53,6 @@ void App::run() {
 }
 
 void App::revFlywheels() {
-    Log.println("Revving flywheels...");
     Flywheels.start();
 }
 
@@ -64,8 +62,6 @@ bool App::isAlreadyFiring() {
 
 void App::startFiring() {
     m_firing = true;
-
-    Log.println("Firing!");
     Belt.start();
 }
 
@@ -77,7 +73,6 @@ void App::stopFiring() {
 
 void App::stopFlywheels() {
     Flywheels.stop();
-    Log.println("Flywheels stopped.");
 }
 
 bool App::shouldAllowRevvingFlywheels() {
@@ -106,8 +101,6 @@ void OnBluetoothCommandReceivedCallback(uint8_t type, uint8_t* data, uint16_t le
 }
 
 void App::init() {
-    Log.println("Initializing application...");
-
     Settings.init(); 
     Flywheels.init();
     Belt.init();
@@ -119,8 +112,6 @@ void App::init() {
     FiringTrigger.init();
     RevTrigger.init();
     HopperLock.init();
-
-    Log.println("Completed application initialization.\n");
 }
 
 void App::onRemoteCommandReceived(uint8_t type, uint8_t* data, uint16_t len, uint8_t subtype) {   

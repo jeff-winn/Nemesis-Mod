@@ -1,7 +1,6 @@
 #include <stddef.h>
 #include "ConfigurationSettings.h"
 #include "FlywheelController.h"
-#include "Log.h"
 #include "Mainboard.h"
 
 FlywheelController Flywheels = FlywheelController();
@@ -18,7 +17,6 @@ void FlywheelController::init() {
     setSpeed(FlywheelSpeed::Normal);
     
     MCU.delaySafe(1);
-    Log.println("Completed initializing flywheel controller.");
 }
 
 unsigned int FlywheelController::getMotorCurrentMilliamps(FlywheelMotor motor) {
@@ -115,8 +113,6 @@ void FlywheelController::setSpeed(FlywheelSpeed speed) {
     if (isRunning()) {
         updateDrivers();
     }
-
-    Log.println("Flywheel speed changed.");
 }
 
 void FlywheelController::setMotorSpeedAdjustment(FlywheelMotor motor, float adjustment) {
@@ -124,16 +120,12 @@ void FlywheelController::setMotorSpeedAdjustment(FlywheelMotor motor, float adju
         return;
     }
 
-    Log.println(adjustment, 5);
-
     switch (motor) {
         case FlywheelMotor::Motor1: {
-            Log.println("Changed M1 trim speed adjustment.");
             Settings.setFlywheelM1TrimAdjustment(adjustment);
             break;
         }
         case FlywheelMotor::Motor2: {
-            Log.println("Changed M2 trim speed adjustment.");
             Settings.setFlywheelM2TrimAdjustment(adjustment);
             break;
         }

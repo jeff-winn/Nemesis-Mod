@@ -1,7 +1,6 @@
 #include <Adafruit_FRAM_I2C.h>
 #include "ConfigurationSettings.h"
 #include "BitConverter.h"
-#include "Log.h"
 
 const short HAS_EXISTING_PAIRING_ADDR = 0x02;
 const short OPERATOR_TOKEN_LENGTH_ADDR = 0x10;
@@ -55,8 +54,6 @@ void ConfigurationSettings::defaultSettings() {
     setFlywheelTrimVariance(0.1F);
     setFlywheelM1TrimAdjustment(1.0F);
     setFlywheelM2TrimAdjustment(1.0F);
-
-    Log.println("Configuration settings reset to defaults.");
 }
 
 void ConfigurationSettings::clear() {
