@@ -1,5 +1,3 @@
-#include "../Callbacks.h"
-#include "../ConfigurationSettings.h"
 #include "ConfigurationService.h"
 #include "CustomUuid.h"
 
@@ -17,35 +15,27 @@ ConfigurationService::ConfigurationService() : CustomBLEService(UUID128_SVC_CONF
 }
 
 void onFlywheelKidSpeedWriteCallback(uint16_t conn_hdl, BLECharacteristic* chr, uint8_t* data, uint16_t len) {
-    NotifyBluetoothCommandReceived(CONFIGURATION_COMMAND_ID, data, len, 1);
 }
 
 void onFlywheelNormalSpeedWriteCallback(uint16_t conn_hdl, BLECharacteristic* chr, uint8_t* data, uint16_t len) {
-    NotifyBluetoothCommandReceived(CONFIGURATION_COMMAND_ID, data, len, 2);
 }
 
 void onFlywheelLudicrousSpeedWriteCallback(uint16_t conn_hdl, BLECharacteristic* chr, uint8_t* data, uint16_t len) {
-    NotifyBluetoothCommandReceived(CONFIGURATION_COMMAND_ID, data, len, 3);
 }
 
 void onBeltNormalSpeedWriteCallback(uint16_t conn_hdl, BLECharacteristic* chr, uint8_t* data, uint16_t len) {
-    NotifyBluetoothCommandReceived(CONFIGURATION_COMMAND_ID, data, len, 4);
 }
 
 void onBeltMediumSpeedWriteCallback(uint16_t conn_hdl, BLECharacteristic* chr, uint8_t* data, uint16_t len) {
-    NotifyBluetoothCommandReceived(CONFIGURATION_COMMAND_ID, data, len, 5);
 }
 
 void onBeltMaxSpeedWriteCallback(uint16_t conn_hdl, BLECharacteristic* chr, uint8_t* data, uint16_t len) {
-    NotifyBluetoothCommandReceived(CONFIGURATION_COMMAND_ID, data, len, 6);
 }
 
 void onFlywheelTrimVarianceWriteCallback(uint16_t conn_hdl, BLECharacteristic* chr, uint8_t* data, uint16_t len) {
-    NotifyBluetoothCommandReceived(CONFIGURATION_COMMAND_ID, data, len, 7);
 }
 
 void onHopperLockEnabledWriteCallback(uint16_t conn_hdl, BLECharacteristic* chr, uint8_t* data, uint16_t len) {
-    NotifyBluetoothCommandReceived(CONFIGURATION_COMMAND_ID, data, len, 8);
 }
 
 void ConfigurationService::init() {
@@ -55,7 +45,7 @@ void ConfigurationService::init() {
     m_flywheelNormalSpeed.setUserDescriptor("Flywheel Normal Speed");
     m_flywheelNormalSpeed.setWriteCallback(onFlywheelNormalSpeedWriteCallback);
     m_flywheelNormalSpeed.begin();
-    m_flywheelNormalSpeed.write32(Settings.getFlywheelNormalSpeed());
+    m_flywheelNormalSpeed.write32(215);
 
     m_flywheelKidSpeed.setProperties(CHR_PROPS_READ | CHR_PROPS_WRITE);
     m_flywheelKidSpeed.setPermission(SECMODE_ENC_NO_MITM, SECMODE_ENC_NO_MITM);
@@ -63,7 +53,7 @@ void ConfigurationService::init() {
     m_flywheelKidSpeed.setUserDescriptor("Flywheel Kid Speed");
     m_flywheelKidSpeed.setWriteCallback(onFlywheelKidSpeedWriteCallback);
     m_flywheelKidSpeed.begin();
-    m_flywheelKidSpeed.write32(Settings.getFlywheelKidSpeed());
+    m_flywheelKidSpeed.write32(195);
 
     m_flywheelLudicrousSpeed.setProperties(CHR_PROPS_READ | CHR_PROPS_WRITE);
     m_flywheelLudicrousSpeed.setPermission(SECMODE_ENC_NO_MITM, SECMODE_ENC_NO_MITM);
@@ -71,7 +61,7 @@ void ConfigurationService::init() {
     m_flywheelLudicrousSpeed.setUserDescriptor("Flywheel Ludicrous Speed");
     m_flywheelLudicrousSpeed.setWriteCallback(onFlywheelLudicrousSpeedWriteCallback);
     m_flywheelLudicrousSpeed.begin();
-    m_flywheelLudicrousSpeed.write32(Settings.getFlywheelLudicrousSpeed());
+    m_flywheelLudicrousSpeed.write32(400);
 
     m_flywheelTrimVariance.setProperties(CHR_PROPS_READ | CHR_PROPS_WRITE);
     m_flywheelTrimVariance.setPermission(SECMODE_ENC_NO_MITM, SECMODE_ENC_NO_MITM);
@@ -80,7 +70,7 @@ void ConfigurationService::init() {
     m_flywheelTrimVariance.setWriteCallback(onFlywheelTrimVarianceWriteCallback);
     m_flywheelTrimVariance.begin();
 
-    auto flywheelTrimVariance = Settings.getFlywheelTrimVariance();
+    auto flywheelTrimVariance = 0.1F;
     m_flywheelTrimVariance.write(&flywheelTrimVariance, 4);
 
     m_beltNormalSpeed.setProperties(CHR_PROPS_READ | CHR_PROPS_WRITE);
@@ -90,7 +80,7 @@ void ConfigurationService::init() {
     m_beltNormalSpeed.setWriteCallback(onBeltNormalSpeedWriteCallback);
     m_beltNormalSpeed.begin();
 
-    auto feedNormalSpeed = Settings.getFeedNormalSpeed();
+    auto feedNormalSpeed = 100;
     m_beltNormalSpeed.write(&feedNormalSpeed, 4);
 
     m_beltMediumSpeed.setProperties(CHR_PROPS_READ | CHR_PROPS_WRITE);
@@ -100,7 +90,7 @@ void ConfigurationService::init() {
     m_beltMediumSpeed.setWriteCallback(onBeltMediumSpeedWriteCallback);
     m_beltMediumSpeed.begin();
 
-    auto feedMediumSpeed = Settings.getFeedMediumSpeed();
+    auto feedMediumSpeed = 175;
     m_beltMediumSpeed.write(&feedMediumSpeed, 4);
 
     m_beltMaxSpeed.setProperties(CHR_PROPS_READ | CHR_PROPS_WRITE);
@@ -110,7 +100,7 @@ void ConfigurationService::init() {
     m_beltMaxSpeed.setWriteCallback(onBeltMaxSpeedWriteCallback);
     m_beltMaxSpeed.begin();
 
-    auto feedMaxSpeed = Settings.getFeedMaxSpeed();
+    auto feedMaxSpeed = 400;
     m_beltMaxSpeed.write(&feedMaxSpeed, 4);
 
     m_hopperLockEnabled.setProperties(CHR_PROPS_READ | CHR_PROPS_WRITE);
@@ -120,7 +110,7 @@ void ConfigurationService::init() {
     m_hopperLockEnabled.setWriteCallback(onHopperLockEnabledWriteCallback);
     m_hopperLockEnabled.begin();
 
-    auto hopperLockEnabled = Settings.isHopperLockEnabled();
+    auto hopperLockEnabled = true;
     if (hopperLockEnabled) {
         m_hopperLockEnabled.write8(0xFF);
     }

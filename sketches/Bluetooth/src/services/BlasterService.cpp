@@ -1,5 +1,3 @@
-#include "../Callbacks.h"
-#include "../ConfigurationSettings.h"
 #include "BlasterService.h"
 #include "CustomUuid.h"
 
@@ -11,19 +9,15 @@ BlasterService::BlasterService() : CustomBLEService(UUID128_SVC_NERF_BLASTER) {
 }
 
 void onFlywheelSpeedWriteCallback(uint16_t conn_hdl, BLECharacteristic* chr, uint8_t* data, uint16_t len) {
-    NotifyBluetoothCommandReceived(200, data, len, 0);
 }
 
 void onFlywheelM1TrimAdjustmentWriteCallback(uint16_t conn_hdl, BLECharacteristic* chr, uint8_t* data, uint16_t len) {
-    NotifyBluetoothCommandReceived(201, data, len, 1);
 }
 
 void onFlywheelM2TrimAdjustmentWriteCallback(uint16_t conn_hdl, BLECharacteristic* chr, uint8_t* data, uint16_t len) {
-    NotifyBluetoothCommandReceived(201, data, len, 2); 
 }
 
 void onBeltSpeedWriteCallback(uint16_t conn_hdl, BLECharacteristic* chr, uint8_t* data, uint16_t len) {
-    NotifyBluetoothCommandReceived(100, data, len, 0);
 }
 
 void BlasterService::init() {  
@@ -42,7 +36,7 @@ void BlasterService::init() {
     m_flywheelM1TrimSpeed.setWriteCallback(onFlywheelM1TrimAdjustmentWriteCallback);
     m_flywheelM1TrimSpeed.begin();
 
-    auto m1TrimSpeed = Settings.getFlywheelM1TrimAdjustment();
+    auto m1TrimSpeed = 1.0F;
     m_flywheelM1TrimSpeed.write(&m1TrimSpeed, 4);
 
     m_flywheelM2TrimSpeed.setProperties(CHR_PROPS_READ | CHR_PROPS_WRITE);
@@ -52,7 +46,7 @@ void BlasterService::init() {
     m_flywheelM2TrimSpeed.setWriteCallback(onFlywheelM2TrimAdjustmentWriteCallback);
     m_flywheelM2TrimSpeed.begin();
 
-    auto m2TrimSpeed = Settings.getFlywheelM2TrimAdjustment();
+    auto m2TrimSpeed = 1.0F;
     m_flywheelM2TrimSpeed.write(&m2TrimSpeed, 4);
 
     m_beltSpeed.setProperties(CHR_PROPS_READ | CHR_PROPS_WRITE);

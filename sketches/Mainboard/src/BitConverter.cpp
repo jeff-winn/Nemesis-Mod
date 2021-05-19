@@ -1,5 +1,4 @@
 #include "BitConverter.h"
-#include "Log.h"
 
 BitConverter Convert;
 

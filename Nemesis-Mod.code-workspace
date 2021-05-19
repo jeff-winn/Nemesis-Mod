@@ -7,16 +7,17 @@
 	"settings": {
 		"arduino.defaultBaudRate": 115200,
 		"arduino.logLevel": "info",
+		"arduino.disableIntelliSenseAutoGen": true,
 		"arduino.additionalUrls": [
 			"https://adafruit.github.io/arduino-board-index/package_adafruit_index.json"
 		],
+		"cortex-debug.armToolchainPath": "${env:LOCALAPPDATA}/Arduino15/packages/adafruit/tools/arm-none-eabi-gcc/9-2019q4/bin",
+		"cortex-debug.JLinkGDBServerPath": "${env:PROGRAMFILES(X86)}/SEGGER/JLink_v694a/JLinkGDBServerCL.exe",
 		"C_Cpp.intelliSenseEngine": "Default",
 		"editor.tabSize": 4,
 		"files.exclude": {
 			".vscode/ipch": true,
 			".vscode/temp": true,
-			"build": true,
-			"external": true,
 			"docs": true,
 			"**/*.exe": true,
 			"**/*.bin": true,

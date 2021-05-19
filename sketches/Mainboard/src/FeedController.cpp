@@ -1,12 +1,11 @@
 #include "ConfigurationSettings.h"
 #include "FeedController.h"
-#include "Log.h"
 #include "Mainboard.h"
 
 FeedController Belt = FeedController();
 
 FeedController::FeedController() {
-    m_driver = G2HighPowerMotorShield18v17(17, -1, 7, -1, A2);
+    m_driver = G2HighPowerMotorShield18v17(17, -1, 11, -1, -1);
 }
 
 void FeedController::init() {
@@ -17,7 +16,6 @@ void FeedController::init() {
     setSpeed(BeltSpeed::Normal);
     
     MCU.delaySafe(1);    
-    Log.println("Completed initializing feed controller.");
 }
 
 unsigned int FeedController::getMotorCurrentMilliamps() {
@@ -58,6 +56,8 @@ int FeedController::calculateMotorSpeed() {
             return Settings.getFeedMaxSpeed();
         }
     }
+
+    return 0;
 }
 
 int FeedController::calculateStepFromSpeed(int speed) {
@@ -74,6 +74,4 @@ void FeedController::setSpeed(BeltSpeed speed) {
     if (isRunning()) {
         updateDriver();
     }
-
-    Log.println("Feed speed changed.");   
 }

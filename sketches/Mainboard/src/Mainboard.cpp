@@ -41,5 +41,4 @@ void Mainboard::pinModeSafe(uint32_t pin, PinMode mode) {
 }
 
 void Mainboard::waitforEventSafe(uint32_t pin, uint8_t mode) {
-    systemOff(pin, mode);
 }

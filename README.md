@@ -9,7 +9,8 @@ It started off as me just wanting to play with an Arduino while repurposing some
 ## Hardware Requirements
 These are the boards and hardware being used by the project.
 - [Nerf Rival Nemesis MXVII-10K](https://shop.hasbro.com/en-us/product/nerf-rival-nemesis-mxvii-10-k-blue:04E71588-5056-9047-F5B8-940FC9A5A209)
-- [Adafruit Feather nRF52 Bluefruit LE - nRF52832](https://www.adafruit.com/product/3406)
+- [Adafruit Feather M4 Express (ATSAMD51)](https://www.adafruit.com/product/3857)
+- [Adafruit Feather nRF52840 Express](https://www.adafruit.com/product/4062)
 - [Adafruit FeatherWing Proto - Prototyping Add-on](https://www.adafruit.com/product/2884)
 - [Adafruit I2C Non-Volatile FRAM Breakout](https://www.adafruit.com/product/1895)
 - [Tactile Switch Button (12mm square, 6mm tall)](https://www.adafruit.com/product/1119)
@@ -31,7 +32,8 @@ Below are the software which must be installed to compile the source code.
 The below are the optional tools that could be used as a replacement for the Makefile support.
 - Arduino Extension for Visual Studio Code
 - Arduino Board Manager Packages
-  - Adafruit nRF52 Boards (0.20.5)
+  - Adafruit SAMD Boards (1.6.5)
+  - Adafruit nRF52 Boards (0.21.0)
 
 ### Dependencies
 Below are the dependencies that are being used by the project and must be installed using the Arduino IDE Library Manager.

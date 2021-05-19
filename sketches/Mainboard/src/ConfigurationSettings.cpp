@@ -1,7 +1,6 @@
 #include <Adafruit_FRAM_I2C.h>
 #include "ConfigurationSettings.h"
 #include "BitConverter.h"
-#include "Log.h"
 
 const short HAS_EXISTING_PAIRING_ADDR = 0x02;
 const short OPERATOR_TOKEN_LENGTH_ADDR = 0x10;
@@ -55,8 +54,6 @@ void ConfigurationSettings::defaultSettings() {
     setFlywheelTrimVariance(0.1F);
     setFlywheelM1TrimAdjustment(1.0F);
     setFlywheelM2TrimAdjustment(1.0F);
-
-    Log.println("Configuration settings reset to defaults.");
 }
 
 void ConfigurationSettings::clear() {
@@ -64,29 +61,6 @@ void ConfigurationSettings::clear() {
         framDriver.write8(addr, 0x00);
     }
 }
-
-// AuthenticationToken_t ConfigurationSettings::getAuthenticationToken() {
-//     AuthenticationToken_t result;
-
-//     result.length = framDriver.read8(OPERATOR_TOKEN_LENGTH_ADDR);
-//     if (result.length > 0) {
-//         result.data = new byte[result.length];
-
-//         for (byte index = 0; index < result.length; index++) {
-//             result.data[index] = framDriver.read8(OPERATOR_TOKEN_ADDR + index);
-//         }
-//     }
-
-//     return result;
-// }
-
-// void ConfigurationSettings::setAuthenticationToken(AuthenticationToken_t token) {
-//     framDriver.write8(OPERATOR_TOKEN_ADDR, token.length);
-
-//     for (byte index = 0; index < token.length; index++) {
-//         framDriver.write8(OPERATOR_TOKEN_ADDR + index, token.data[index]);
-//     }
-// }
 
 bool ConfigurationSettings::hasExistingPairing() {
     return framDriver.read8(HAS_EXISTING_PAIRING_ADDR) != 0x00;

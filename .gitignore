@@ -4,7 +4,7 @@
 !**/.vscode/extensions.json
 
 # Build configuration outputs
-**/build/*
+**/out
 **/*.elf
 **/*.hex
 **/*.bin

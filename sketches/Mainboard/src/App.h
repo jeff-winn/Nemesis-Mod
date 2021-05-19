@@ -30,9 +30,6 @@ class App {
         void onRemoteCommandReceived(uint8_t type, uint8_t* data, uint16_t len, uint8_t subtype);
 
     protected:       
-        void waitForRevTriggerToBePressed();
-        void sendAmperesNotifications();
-
         void revFlywheels();
         void stopFlywheels();
 

@@ -17,9 +17,6 @@ BeltSpeed BeltSpeedCommand::getSpeedFromPacket(uint8_t* data) {
     auto value = data[0];
 
     switch (value) {
-        case 1: {
-            return BeltSpeed::Normal;
-        }
         case 2: {
             return BeltSpeed::Medium;            
         }
@@ -27,4 +24,6 @@ BeltSpeed BeltSpeedCommand::getSpeedFromPacket(uint8_t* data) {
             return BeltSpeed::Max;
         }
     }
+
+    return BeltSpeed::Normal;
 }

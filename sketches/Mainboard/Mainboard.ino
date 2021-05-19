@@ -1,18 +1,15 @@
 #include <Arduino.h>
 #include "src/App.h"
 #include "src/Button.h"
-#include "src/Log.h"
 #include "src/Mainboard.h"
 
 const uint16_t CLEAR_HOLD_IN_MSECS = 30000;  // 30 seconds
 const uint16_t RESET_HOLD_IN_MSECS = 5000;   // 5 seconds
-const uint32_t RESET_BUTTON_PIN = 28;
+const uint32_t RESET_BUTTON_PIN = 18;
 
 Button ResetButton = Button(RESET_BUTTON_PIN, true);
 
-void setup() {
-    Log.waitForUsbConnection();
-    
+void setup() {    
     ResetButton.init();
     Application.init();
 }

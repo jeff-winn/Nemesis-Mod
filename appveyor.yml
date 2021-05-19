@@ -8,9 +8,7 @@ build_script:
 - cmd: make.exe
 
 artifacts:
-- path: build/Nemesis-Mod.ino.zip
-- path: build/Nemesis-Mod.ino.hex
-- path: build/Nemesis-Mod.ino.elf
-- path: build/Nemesis-Mod.ino.map
+- path: out/Mainboard/Mainboard.ino.*
+- path: out/Bluetooth/Bluetooth.ino.*
 
 deploy: off

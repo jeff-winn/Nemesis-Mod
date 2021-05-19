@@ -1,19 +1,47 @@
 {
+    "version": 4,
     "env": {
         "librariesPath": "${env:USERPROFILE}/Documents/Arduino/libraries",
         "arduinoDataPath": "${env:LOCALAPPDATA}/Arduino15/packages"
     },
     "configurations": [
         {
-            "name": "ARM",
+            "name": "Bluetooth",
             "intelliSenseMode": "gcc-x64",
+            "includePath": [
+                "${workspaceFolder}/sketches/Bluetooth/**",
+                "${arduinoDataPath}/adafruit/hardware/nrf52/0.21.0/cores/nRF5",
+                "${arduinoDataPath}/adafruit/hardware/nrf52/0.21.0/cores/nRF5/avr/**",
+                "${arduinoDataPath}/adafruit/hardware/nrf52/0.21.0/cores/nRF5/cmsis/**",
+                "${arduinoDataPath}/adafruit/hardware/nrf52/0.21.0/cores/nRF5/freertos/config/**",
+                "${arduinoDataPath}/adafruit/hardware/nrf52/0.21.0/cores/nRF5/freertos/portable/**",
+                "${arduinoDataPath}/adafruit/hardware/nrf52/0.21.0/cores/nRF5/freertos/source/include/**",
+                "${arduinoDataPath}/adafruit/hardware/nrf52/0.21.0/cores/nRF5/nordic",
+                "${arduinoDataPath}/adafruit/hardware/nrf52/0.21.0/cores/nRF5/nordic/nrfx",
+                "${arduinoDataPath}/adafruit/hardware/nrf52/0.21.0/cores/nRF5/nordic/nrfx/drivers/**",
+                "${arduinoDataPath}/adafruit/hardware/nrf52/0.21.0/cores/nRF5/nordic/nrfx/hal/**",
+                "${arduinoDataPath}/adafruit/hardware/nrf52/0.21.0/cores/nRF5/nordic/nrfx/helpers",
+                "${arduinoDataPath}/adafruit/hardware/nrf52/0.21.0/cores/nRF5/nordic/nrfx/mdk/**",
+                "${arduinoDataPath}/adafruit/hardware/nrf52/0.21.0/cores/nRF5/nordic/nrfx/soc",
+                "${arduinoDataPath}/adafruit/hardware/nrf52/0.21.0/cores/nRF5/nordic/softdevice/**",
+                "${arduinoDataPath}/adafruit/hardware/nrf52/0.21.0/cores/nRF5/TinyUSB",
+                "${arduinoDataPath}/adafruit/hardware/nrf52/0.21.0/cores/nRF5/TinyUSB/**",
+                "${arduinoDataPath}/adafruit/hardware/nrf52/0.21.0/libraries/**",
+                "${arduinoDataPath}/adafruit/hardware/nrf52/0.21.0/variants/**",
+                "${arduinoDataPath}/adafruit/tools/arm-none-eabi-gcc/9-2019q4/arm-none-eabi/include/**"
+            ],
+            "forcedInclude": [
+                "${arduinoDataPath}/adafruit/hardware/nrf52/0.21.0/cores/nRF5/Arduino.h"
+            ],
+            "compilerPath": "${arduinoDataPath}/adafruit/tools/arm-none-eabi-gcc/9-2019q4/bin/arm-none-eabi-g++.exe",
+            "compilerArgs": [],
             "defines": [
                 "F_CPU=64000000",
                 "ARDUINO=10813",
-                "ARDUINO_NRF52832_FEATHER",
+                "ARDUINO_NRF52840_FEATHER",
                 "ARDUINO_ARCH_NRF52",
-                "ARDUINO_BSP_VERSION=\"0.20.5\"",
-                "NRF52832_XXAA",
+                "ARDUINO_BSP_VERSION=\"0.21.0\"",
+                "NRF52840_XXAA",
                 "NRF52",
                 "SOFTDEVICE_PRESENT",
                 "ARDUINO_NRF52_ADAFRUIT",
@@ -21,43 +49,64 @@
                 "LFS_NAME_MAX=64",
                 "__ENABLE_LOGGING__"
             ],
-            "includePath": [
-                "${workspaceFolder}/Nemesis-Mod/**",
-                "${librariesPath}/Adafruit_FRAM_I2C",
-                "${librariesPath}/DualG2HighPowerMotorShield",
-                "${arduinoDataPath}/adafruit/hardware/nrf52/0.20.5/cores/nRF5",
-                "${arduinoDataPath}/adafruit/hardware/nrf52/0.20.5/cores/nRF5/avr/**",
-                "${arduinoDataPath}/adafruit/hardware/nrf52/0.20.5/cores/nRF5/cmsis/**",
-                "${arduinoDataPath}/adafruit/hardware/nrf52/0.20.5/cores/nRF5/freertos/config/**",
-                "${arduinoDataPath}/adafruit/hardware/nrf52/0.20.5/cores/nRF5/freertos/portable/**",
-                "${arduinoDataPath}/adafruit/hardware/nrf52/0.20.5/cores/nRF5/freertos/source/include/**",
-                "${arduinoDataPath}/adafruit/hardware/nrf52/0.20.5/cores/nRF5/nordic",
-                "${arduinoDataPath}/adafruit/hardware/nrf52/0.20.5/cores/nRF5/nordic/nrfx",
-                "${arduinoDataPath}/adafruit/hardware/nrf52/0.20.5/cores/nRF5/nordic/nrfx/drivers/**",
-                "${arduinoDataPath}/adafruit/hardware/nrf52/0.20.5/cores/nRF5/nordic/nrfx/hal/**",
-                "${arduinoDataPath}/adafruit/hardware/nrf52/0.20.5/cores/nRF5/nordic/nrfx/helpers",
-                "${arduinoDataPath}/adafruit/hardware/nrf52/0.20.5/cores/nRF5/nordic/nrfx/mdk/**",
-                "${arduinoDataPath}/adafruit/hardware/nrf52/0.20.5/cores/nRF5/nordic/nrfx/soc",
-                "${arduinoDataPath}/adafruit/hardware/nrf52/0.20.5/cores/nRF5/nordic/softdevice/**",
-                "${arduinoDataPath}/adafruit/hardware/nrf52/0.20.5/cores/nRF5/TinyUSB",
-                "${arduinoDataPath}/adafruit/hardware/nrf52/0.20.5/cores/nRF5/TinyUSB/**",
-                "${arduinoDataPath}/adafruit/hardware/nrf52/0.20.5/libraries/**",
-                "${arduinoDataPath}/adafruit/hardware/nrf52/0.20.5/variants/**",
-                "${arduinoDataPath}/adafruit/tools/arm-none-eabi-gcc/9-2019q4/arm-none-eabi/include/**"
-            ],
-            "browse": {
-                "limitSymbolsToIncludedHeaders": true,
-                "databaseFilename": "${workspaceFolder}/.vscode/temp/cache",
-                "path": [
-                    "${workspaceFolder}/**",
-                    "${librariesPath}/**",
-                    "${arduinoDataPath}/**"
-                ]
-            },
-            "compilerPath": "${arduinoDataPath}/adafruit/tools/arm-none-eabi-gcc/9-2019q4/bin/arm-none-eabi-g++.exe",
             "cStandard": "c11",
             "cppStandard": "c++11"
-        }
-    ],
-    "version": 4
+        },
+        {
+            "name": "Mainboard",            
+            "intelliSenseMode": "gcc-x64",
+            "includePath": [
+                "${workspaceFolder}/sketches/Bluetooth/**",
+                "${librariesPath}/Adafruit_FRAM_I2C",
+                "${librariesPath}/DualG2HighPowerMotorShield",
+                "${arduinoDataPath}/adafruit/hardware/samd/1.6.5/cores/arduino/TinyUSB",
+                "${arduinoDataPath}/adafruit/hardware/samd/1.6.5/cores/arduino/TinyUSB/Adafruit_TinyUSB_ArduinoCore",
+                "${arduinoDataPath}/adafruit/hardware/samd/1.6.5/cores/arduino/TinyUSB/Adafruit_TinyUSB_ArduinoCore/tinyusb/src",
+                "${arduinoDataPath}/adafruit/hardware/samd/1.6.5/cores/arduino/TinyUSB",
+                "${arduinoDataPath}/adafruit/hardware/samd/1.6.5/cores/arduino/TinyUSB/Adafruit_TinyUSB_ArduinoCore",
+                "${arduinoDataPath}/adafruit/hardware/samd/1.6.5/cores/arduino/TinyUSB/Adafruit_TinyUSB_ArduinoCore/tinyusb/src",
+                "${arduinoDataPath}/adafruit/hardware/samd/1.6.5/cores/arduino",
+                "${arduinoDataPath}/adafruit/hardware/samd/1.6.5/variants/feather_m4",
+                "${arduinoDataPath}/adafruit/tools/CMSIS/5.4.0/CMSIS/Core/Include/",
+                "${arduinoDataPath}/adafruit/tools/CMSIS/5.4.0/CMSIS/DSP/Include/",
+                "${arduinoDataPath}/arduino/tools/CMSIS-Atmel/1.2.0/CMSIS/Device/ATMEL/",
+                "${arduinoDataPath}/adafruit/hardware/samd/1.6.5/libraries/Wire",
+                "${arduinoDataPath}/adafruit/tools/arm-none-eabi-gcc/9-2019q4/arm-none-eabi/include/**"
+            ],
+            "forcedInclude": [
+                "${arduinoDataPath}/adafruit/hardware/samd/1.6.5/cores/arduino/Arduino.h"
+            ],
+            "cStandard": "c11",
+            "cppStandard": "c++11",
+            "compilerPath": "${arduinoDataPath}/adafruit/tools/arm-none-eabi-gcc/9-2019q4/bin/arm-none-eabi-g++.exe",
+            "compilerArgs": [
+                "-mcpu=cortex-m4",
+                "-mthumb",
+                "-std=gnu++11",
+                "-ffunction-sections",
+                "-fdata-sections",
+                "-fno-threadsafe-statics",
+                "-nostdlib",
+                "--param",
+                "-fno-rtti",
+                "-fno-exceptions"
+            ],
+            "defines": [
+                "F_CPU=120000000L",
+                "ARDUINO=10813",
+                "ARDUINO_FEATHER_M4",
+                "ARDUINO_ARCH_SAMD",
+                "__SAMD51J19A__",
+                "ADAFRUIT_FEATHER_M4_EXPRESS",
+                "__SAMD51__",
+                "USB_CONFIG_POWER=100",
+                "__FPU_PRESENT",
+                "ARM_MATH_CM4",
+                "ENABLE_CACHE",
+                "USB_VID=0x239A",
+                "USB_PID=0x8022",
+                "USBCON"
+            ]
+        }        
+    ]
 }
