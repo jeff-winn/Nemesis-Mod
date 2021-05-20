@@ -1,0 +1,15 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "Debug",
+            "type": "cortex-debug",
+            "cwd": "${workspaceRoot}",
+            "executable": "./out/Bluetooth.ino.elf",
+            "request": "launch",
+            "servertype": "jlink",
+            "interface": "swd",
+            "device": "CORTEX-M4"
+        }
+    ]
+}
