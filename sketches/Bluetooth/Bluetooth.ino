@@ -4,29 +4,25 @@
 #include "src/InterruptSignal.h"
 
 const uint8_t I2C_ADDRESS = 0xA1;
-const uint32_t INTERRUPT_PIN = 13; // The pin to be signaled when data is waiting for transfer.
-
-InterruptSignal IRQ = InterruptSignal(INTERRUPT_PIN, true);
+InterruptSignal Interrupt = InterruptSignal(13, true); // The interrupt which will signal there is data pending transfer.
 
 void setup() {
-	pinMode(INTERRUPT_PIN, OUTPUT);
-
 	Wire.begin(I2C_ADDRESS);
 	Wire.onRequest(OnWireDataRequested);
 
 	// SetBluetoothCommandReceivedCallback()
-	IRQ.init();
+	Interrupt.init();
 	
 	BLE.init();
 	BLE.startAdvertising();
 }
 
 void loop() {
-	IRQ.signal();
+	Interrupt.signal();
 
 	delay(1000);
 
-	IRQ.reset();
+	Interrupt.reset();
 	
 	delay(1000);
 }
